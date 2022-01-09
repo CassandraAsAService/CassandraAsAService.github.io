@@ -1,0 +1,363 @@
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Pro1 SailfishOS Installation Guide</title>
+	<style>
+		html {
+			font-family: sans-serif;
+			color: black;
+		}
+
+		body {
+			background: #f2f2f2;
+		}
+
+		h1,
+		h2 {
+			position: sticky;
+			top: 0;
+		}
+
+		h1,
+		h2,
+		h3 {
+			background: #ffffffed;
+			padding-top: 20px;
+			padding-bottom: 4px;
+			font-weight: 400;
+		}
+
+		.code {
+			font-family: monospace;
+			transition: background;
+			transition-duration: 1s;
+		}
+
+		.code:hover {
+			background: #e9e9e9;
+			transition: background;
+			transition-duration: 0.3s;
+		}
+
+		span.code {
+			background: lightgray;
+			padding: 3px;
+			margin: 1px;
+		}
+
+		div.code {
+			background: lightgray;
+			display: inline-block;
+			padding: 15px;
+			margin-left: 30px;
+			white-space: nowrap;
+			overflow-x: auto;
+			max-width: -webkit-fill-available;
+			border-top-left-radius: 30px;
+			border-bottom-right-radius: 30px;
+		}
+
+		.card {
+			background: white;
+			max-width: 1000px;
+			padding-bottom: 20px;
+			padding-left: 20px;
+			padding-right: 20px;
+			margin: 0 auto;
+			margin-bottom: 20px;
+			box-shadow: 5px 5px 5px lightgray;
+		}
+
+		.card:nth-child(4n-3) {
+			border-left: 15px solid #1d5997;
+		}
+
+		.card:nth-child(4n-2) {
+			border-left: 15px solid #347e16;
+		}
+
+		.card:nth-child(4n-1) {
+			border-left: 15px solid #fcd75f;
+		}
+
+		.card:nth-child(4n) {
+			border-left: 15px solid #993300;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="card">
+		<h1>SailfishOS on the Pro1: Installation guide</h1>
+
+		<p>So you want to run SailfishOS? Alright.
+		<p>
+
+		<p>You must take the long path to prove your worthiness <i style="font-size: x-small">and/or to avoid
+				bootloops.</i></p>
+
+		<p>(If you skip straight to 4.4, it probably won't work. You need to go from Stock > 3.3 > 3.4 > 4.0 > 4.1 > 4.2
+			> 4.3)</p>
+
+		<p>(If you try to install over LineageOS without flashing back to stock first, it also might not work...)</p>
+
+	</div>
+
+	<div class="card">
+		<h2>Flash to Stock (Pie)</h2>
+		<p>Reference: <a
+				href="https://community.fxtec.com/topic/2466-guide-restore-to-stock-firmware-using-fastboot-method/">https://community.fxtec.com/topic/2466-guide-restore-to-stock-firmware-using-fastboot-method/</a>
+		</p>
+
+		<ul>
+			<li>Download the stock files from <a
+					href="https://drive.google.com/file/d/1lEc-ummPsamKDWHpoJP6YJcH6IYS4abe/view">here</a></li>
+			<li>On your Pro1, enable developer mode, then enable USB debugging</li>
+			<li>On your computer, open a terminal and type <span class="code">adb reboot bootloader</span></li>
+		</ul>
+
+		<p>Now you are in the bootloader. Run the following commands:</p>
+		<p>
+		<div class="code">
+			fastboot flash boot_a boot.img<br>
+			fastboot flash boot_b boot.img<br>
+			fastboot flash dtbo_a dtbo.img <br>
+			fastboot flash dtbo_b dtbo.img <br>
+			fastboot flash system_a system.img<br>
+			fastboot flash system_b system.img<br>
+			fastboot flash vendor_a vendor.img <br>
+			fastboot flash vendor_b vendor.img<br>
+			fastboot flash vbmeta_a vbmeta.img <br>
+			fastboot flash vbmeta_b vbmeta.img <br>
+			fastboot flash userdata.img <br>
+			fastboot flash abl_a abl.elf <br>
+			fastboot flash abl_b abl.elf <br>
+			fastboot flash persist persist.img<bR>
+			fastboot flash mdtp_a mdtp.img<br>
+			fastboot flash mdtp_b mdtp.img <br>
+			fastboot flash splash splash.img<br>
+			fastboot flash xbl_a xbl.elf <br>
+			fastboot flash xbl_b xbl.elf<br>
+			fastboot flash rpm_a rpm.mbn<br>
+			fastboot flash rpm_b rpm.mbn<br>
+			fastboot flash tz_a tz.mbn<br>
+			fastboot flash tz_b tz.mbn<br>
+			fastboot flash hyp_a hyp.mbn<br>
+			fastboot flash hyp_b hyp.mbn<br>
+			fastboot flash pmic_a pmic.elf<br>
+			fastboot flash pmic_b pmic.elf<br>
+			fastboot flash modem_a NON-HLOS.bin<br>
+			fastboot flash modem_b NON-HLOS.bin<br>
+			fastboot flash keymaster_a km4.mbn<br>
+			fastboot flash keymaster_b km4.mbn<br>
+			fastboot flash cmnlib_a cmnlib.mbn<br>
+			fastboot flash cmnlib_b cmnlib.mbn<br>
+			fastboot flash cmnlib64_a cmnlib64.mbn<br>
+			fastboot flash cmnlib64_b cmnlib64.mbn<br>
+			fastboot flash bluetooth_a BTFM.bin<br>
+			fastboot flash bluetooth_b BTFM.bin<br>
+			fastboot flash dsp_a adspso.bin<br>
+			fastboot flash dsp_b adspso.bin<br>
+			fastboot flash devcfg_a devcfg.mbn<br>
+			fastboot flash devcfg_b devcfg.mbn<br>
+			fastboot flash mdtpsecapp_a mdtpsecapp.mbn<br>
+			fastboot flash mdtpsecapp_b mdtpsecapp.mbn<br>
+			fastboot flash storsec storsec.mbn
+		</div>
+		</p>
+
+		<p>Suggestion: copy the commands and save as a bash script, then just run the script instead of running each
+			command individually...</p>
+
+		<p>Next run <span class="code">fastboot reboot</span></p>
+
+		<p>Your Pro1 is now flashed back to stock.</p>
+
+		<p>At this point, I went through the Android 9.0 setup and enabled developer mode and USB debugging again. Might
+			be possible to skip this last step...</p>
+
+	</div>
+
+	<div class="card">
+		<h2>Install Sailfish OS 3.3 (Rokua)</h2>
+		<p>Reference: <a
+				href="https://community.fxtec.com/topic/2467-community-build33016updated-18th-aug-sailfish-os-for-fxtec-pro1/">https://community.fxtec.com/topic/2467-community-build33016updated-18th-aug-sailfish-os-for-fxtec-pro1/</a>
+		</p>
+
+		<h3>Requirements</h3>
+		<ul>
+			<li>A microSD card</li>
+		</ul>
+
+		<h3>Process</h3>
+
+		<ul>
+			<li>Download the TWRP file (twrp-3.3.1-qx1000.img) from <a
+					href="https://drive.google.com/open?id=1IgUjxEKV5MU_3cRkNCyGc-YpRkUQ3xHh">here</a></li>
+			<li>Download the SailfishOS 3.3 image (sailfishos-t5-release-3.3.0.16-devel-20200507.zip) from <a
+					href="https://gitlab.com/sailfishos-porters-ci/t5-ci/-/jobs/542508839/artifacts/browse/sfe-t5-3.3.0.16-devel-20200507/">here</a>
+			</li>
+			<li>Copy the SailfishOS 3.3 image to the microSD card (do not unzip) and insert the microSD card into the
+				Pro1</li>
+			<li>Reboot your Pro1 to the bootloader (<span class="code">adb reboot bootloader</span>)</li>
+			<li>On your computer, run <span class="code">fastboot set_active a</span></li>
+			<li>On your computer, run <span class="code">fastboot flash boot twrp-3.3.1-qx1000.img</span></li>
+			<li>On the Pro1, use the volume buttons to switch to "Recovery Mode", then press the power button to select
+			</li>
+			<li>In TWRP go to Wipe > Format Data then type yes and click the blue tick</li>
+			<li>When the format is complete then go back three times, choose reboot, then choose reboot into recovery
+				(swipe to confirm)</li>
+			<li>Select "install" then select storage SD, then click install zip</li>
+			<li>Navigate to where you put the zip on the microSD card and click it</li>
+			<li>Swipe to install</li>
+			<li>Choose reboot</li>
+		</ul>
+
+		<p>You now have SailfishOS! Great choice btw.</p>
+
+	</div>
+
+	<div class="card">
+
+		<h2>Upgrade from Sailfish 3.3 to 3.4 (Pallas-Yllästunturi)</h2>
+
+		<p>Reference: <a
+				href="https://community.fxtec.com/topic/2467-community-build33016updated-18th-aug-sailfish-os-for-fxtec-pro1/page/8/?tab=comments#comment-54413">https://community.fxtec.com/topic/2467-community-build33016updated-18th-aug-sailfish-os-for-fxtec-pro1/page/8/?tab=comments#comment-54413</a>
+		</p>
+
+		<h3>Requirements</h3>
+		<ul>
+			<li>A linux machine to run the flash.sh script on</li>
+			<li>Not minding the fact that this will wipe your 3.3 install (backup your files if you have any...)</li>
+		</ul>
+
+		<h3>Process</h3>
+
+		<ul>
+			<li>Download the 3.4 files (Sailfish_OS--devel-20201125-3.4.0.24-t5-0.0.1.2.zip) from <a
+					href="https://gitlab.com/sailfishos-porters-ci/t5-ci/-/jobs/871937492/artifacts/file/sfe-t5-3.4.0.24-devel-20201125/Sailfish_OS--devel-20201125-3.4.0.24-t5-0.0.1.2.zip">here</a>
+			</li>
+			<li>Extract the zip file (just once)</li>
+			<li>Put the Pro1 into fastboot mode (I did this by turning the phone off, then turning it back on holding
+				the volume-down and power buttons)</li>
+			<li>On your computer, in a terminal, in the folder you extracted, run <span class="code">sudo
+					./flash.sh</span></li>
+			<li>Then reboot the phone (<span class="code">fastboot reboot</span>)</li>
+		</ul>
+
+		<p>You should now have a SailfishOS 3.4 install!</p>
+
+	</div>
+
+	<div class="card">
+
+		<h2>Upgrade from Sailfish 3.4 to 4.0 (Koli)</h2>
+
+		<ul>
+			<li>In SailfishOS, open Settings</li>
+			<li>Go to Developer tools</li>
+			<li>Set a password under the Remote connection option</li>
+			<li>Open the Terminal app then run the following commands:</li>
+		</ul>
+
+		<p>
+		<div class="code">
+			devel-su<br>
+			ssu re 4.0.1.48<br>
+			ssu ur<br>
+			zypper ref<br>
+			zypper dup
+		</div>
+		</p>
+
+		<p>My Pro1 crashed at this point, but after a powercycle I had a perfectly functional 4.0 install. Complete with
+			the ugly lighthouse ambiance.</p>
+		<p>You should reboot, in any case.</p>
+
+		<p><i>Optional note:<br>The CPU gets downclocked when the Pro1 goes into sleep mode.<br>Consider setting the
+				screen timeout to 10 minutes to make things run faster!</i></p>
+	</div>
+
+	<div class="card">
+
+		<h2>Upgrade from 4.0 to 4.1 (Kvarken)</h2>
+
+		<p>Same thing as the 3.4 to 4.0 install, just change the number when running ssu re.</p>
+
+		<p>
+		<div class="code">
+			devel-su<br>
+			ssu re 4.1.0.24<br>
+			ssu ur<br>
+			zypper ref<br>
+			zypper dup
+		</div>
+		</p>
+		<p>Reboot when you're done.</p>
+
+	</div>
+
+	<div class="card">
+		<h2>Upgrade from 4.1 to 4.2 (Verla)</h2>
+		<p>Same thing again, just change the number.</p>
+
+		<div class="code">
+			devel-su<br>
+			ssu re 4.2.0.21<br>
+			ssu ur<br>
+			zypper ref<br>
+			zypper dup
+		</div>
+
+		<p>Reboot when you're done.</p>
+	</div>
+	<div class="card">
+		<h2>Upgrade from 4.2 to 4.3 (Suomenlinna)</h2>
+		<p>Same thing yet again, just change the number.</p>
+
+		<div class="code">
+			devel-su<br>
+			ssu re 4.3.0.12<br>
+			ssu ur<br>
+			zypper ref<br>
+			zypper dup
+		</div>
+		<p>Reboot when you're done.</p>
+
+	</div>
+	<div class="card">
+		<h2>Post-installation stuff</h2>
+		<h3>Homescreen rotation fix</h3>
+		<div class="code">
+			sed -e "s/return allowed/return Orientation.All/" -i  /usr/lib/qt5/qml/Sailfish/Silica/Page.qml
+		</div>
+		<p>Reboot to apply changes</p>
+		<h3>Keyboard layout fix</h3>
+		<div class="code">
+			dconf write /desktop/lipstick-jolla-home/model \"fxtecpro1\"<br>
+			dconf write /desktop/lipstick-jolla-home/layout \"de\"
+		</div>
+		<p>If required, replace "de" with the code from <span class="code">/usr/share/X11/xkb/symbols/fxtec_vndr/pro1</span></p>
+		<p>For US English layout use "us"</p>
+		<h3>My camera doesn't work!</h3>
+		<p>Reference: <a href="https://forum.sailfishos.org/t/4-3-0-12-jolla-camera-also-torch-does-not-start-at-all-as-well-as-videos-do-not-play/9000/62">https://forum.sailfishos.org/t/4-3-0-12-jolla-camera-also-torch-does-not-start-at-all-as-well-as-videos-do-not-play/9000/62</a></p>
+		<div class="code">
+			devel-su<br>
+			ssu rr adaptation-common<br>
+			rm -r /var/cache/ssu/<br>
+			ssu ur<br>
+			pkcon refresh<br> 
+			version --dup<br> 
+			reboot
+		</div>
+		<p>If your camera works, you don't need to do this.</p>
+	</div>
+	<div class="card"
+		style="color: darkgray; padding-top: 5px; padding-bottom: 5px; border-left-color: white; text-align: right; border-top-left-radius: 50px; border-bottom-right-radius: 50px;">
+		<p style="padding-right: 20px">Publication date: 2022-01-08<br>
+			Version: v0.2</p>
+	</div>
+</body>
+
+</html>
