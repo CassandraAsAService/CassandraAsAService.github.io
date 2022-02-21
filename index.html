@@ -117,7 +117,7 @@
 			<li>On your computer, open a terminal and type <span class="code">adb reboot bootloader</span></li>
 		</ul>
 
-		<p>Now you are in the bootloader. Run the following commands:</p>
+                <p>Now you are in the bootloader. Run the following commands or create a script from them as described below:</p>
 		<p>
 		<div class="code">
 			fastboot flash boot_a boot.img<br>
@@ -169,6 +169,11 @@
 
 		<p>Suggestion: copy the commands and save as a bash script, then just run the script instead of running each
 			command individually...</p>
+
+                <p>To do so, copy and paste above fastboot commands into a script, e.g. <span class="code">nano flash-stock.sh</span>. Add <span class="code">#!/bin/bash</span>
+		        as first line. Save what you pasted into nano using <span class="code">ctrl+o</span>. Exit nano with <span class="code">ctrl+x</span> and make the script executable
+			using <span class="code">chmod +x flash-stock.sh</span>.<br>Now you are ready to start the script and thus execute all commands sequentially
+			by executing <span class="code">./flash-stock.sh</span>.</p>
 
 		<p>Next run <span class="code">fastboot reboot</span></p>
 
@@ -239,7 +244,8 @@
 					href="https://gitlab.com/sailfishos-porters-ci/t5-ci/-/jobs/871937492/artifacts/file/sfe-t5-3.4.0.24-devel-20201125/Sailfish_OS--devel-20201125-3.4.0.24-t5-0.0.1.2.zip">here</a>
 			</li>
 			<li>Extract the zip file (just once)</li>
-			<li>Put the Pro1 into fastboot mode (I did this by turning the phone off, then turning it back on holding
+			<li>Put the Pro1 into fastboot mode. Either by issuing <span class="code">reboot bootloader</span>
+			        while connected via SSH (Developer Mode). Or by turning the phone off, then turning it back on holding
 				the volume-down and power buttons)</li>
 			<li>On your computer, in a terminal, in the folder you extracted, run <span class="code">sudo
 					./flash.sh</span></li>
@@ -332,13 +338,13 @@
 		<div class="code">
 			sed -e "s/return allowed/return Orientation.All/" -i  /usr/lib/qt5/qml/Sailfish/Silica/Page.qml
 		</div>
-		<p>Reboot to apply changes</p>
-		<h3>Keyboard layout fix</h3>
+		<p>Reboot or restart lipstick as root/devel-su with <span class="code">systemctl --user restart lipstick</span> to apply changes</p>
+		<h3>Choose hardware keyboard layout</h3>
 		<div class="code">
 			dconf write /desktop/lipstick-jolla-home/model \"fxtecpro1\"<br>
-			dconf write /desktop/lipstick-jolla-home/layout \"de\"
+			dconf write /desktop/lipstick-jolla-home/layout \"LAYOUT\"
 		</div>
-		<p>If required, replace "de" with the code from <span class="code">/usr/share/X11/xkb/symbols/fxtec_vndr/pro1</span></p>
+		<p>Replace <span class="code">LAYOUT</span> with a country code from <span class="code">/usr/share/X11/xkb/symbols/fxtec_vndr/pro1</span></p>
 		<p>For US English layout use "us"</p>
 		<h3>My camera doesn't work!</h3>
 		<p>Reference: <a href="https://forum.sailfishos.org/t/4-3-0-12-jolla-camera-also-torch-does-not-start-at-all-as-well-as-videos-do-not-play/9000/62">https://forum.sailfishos.org/t/4-3-0-12-jolla-camera-also-torch-does-not-start-at-all-as-well-as-videos-do-not-play/9000/62</a></p>
@@ -355,8 +361,8 @@
 	</div>
 	<div class="card"
 		style="color: darkgray; padding-top: 5px; padding-bottom: 5px; border-left-color: white; text-align: right; border-top-left-radius: 50px; border-bottom-right-radius: 50px;">
-		<p style="padding-right: 20px">Publication date: 2022-01-08<br>
-			Version: v0.2</p>
+		<p style="padding-right: 20px">Publication date: 2022-01-08<br>Updated: 2022-02-21<br>
+		        Version: v0.2.1</p>
 	</div>
 </body>
 
