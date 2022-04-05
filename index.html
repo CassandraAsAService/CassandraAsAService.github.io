@@ -333,6 +333,28 @@
 
 	</div>
 	<div class="card">
+		<h2>Upgrade from 4.3 to 4.4 (Vanha Rauma)</h2>
+		<p>Same thing yet again, just change the number.</p>
+
+		<div class="code">
+			devel-su<br>
+			ssu re 4.4.0.58<br>
+			ssu ur<br>
+			zypper ref<br>
+			zypper dup
+		</div>
+
+		<p>Now you might be left with no network connection for all Sailjail apps. To resolve this, update the resolv.conf symlink from /var/run/connman/resolv.conf to /run/connman/resolv.conf</p>
+
+		<div class="code">
+			rm -f /etc/resolv.conf<br>
+			ln -s /run/connman/resolv.conf /etc/resolv.conf<br>
+		</div>
+
+		<p>Reboot when you're done.</p>
+
+	</div>
+	<div class="card">
 		<h2>Post-installation stuff</h2>
 		<h3>Homescreen rotation fix</h3>
 		<div class="code">
@@ -346,7 +368,7 @@
 		</div>
 		<p>Replace <span class="code">LAYOUT</span> with a country code from <span class="code">/usr/share/X11/xkb/symbols/fxtec_vndr/pro1</span></p>
 		<p>For US English layout use "us"</p>
-		<h3>My camera doesn't work!</h3>
+		<h3>My camera doesn't work! (fix only applies to 4.3.0.12)</h3>
 		<p>Reference: <a href="https://forum.sailfishos.org/t/4-3-0-12-jolla-camera-also-torch-does-not-start-at-all-as-well-as-videos-do-not-play/9000/62">https://forum.sailfishos.org/t/4-3-0-12-jolla-camera-also-torch-does-not-start-at-all-as-well-as-videos-do-not-play/9000/62</a></p>
 		<div class="code">
 			devel-su<br>
