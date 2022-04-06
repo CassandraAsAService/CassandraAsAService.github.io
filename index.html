@@ -338,20 +338,32 @@
 
 		<div class="code">
 			devel-su<br>
+			zypper ref<br>
+			zypper dup<br>
 			ssu re 4.4.0.58<br>
 			ssu ur<br>
 			zypper ref<br>
 			zypper dup
 		</div>
 
-		<p>Now you might be left with no network connection for all Sailjail apps. To resolve this, update the resolv.conf symlink from /var/run/connman/resolv.conf to /run/connman/resolv.conf</p>
+		<p>Reboot when you're done.</p>
+
+		<p>In case you are left with no network connection for all Sailjail apps, there are two possible culprits.</p>
+
+		<p>Dnsmasq might have wrongly been activated by the systemd update. Disable it with:</p>
 
 		<div class="code">
-			rm -f /etc/resolv.conf<br>
-			ln -s /run/connman/resolv.conf /etc/resolv.conf<br>
+			systemctl disable dnsmasq<br>
 		</div>
 
-		<p>Reboot when you're done.</p>
+		<p>Another quirk could be the resolv.conf not being visible from inside the Sailjail. Check if your /etc/resolv.conf symlink still points to /var/run/connman/resolv.conf. Change it to /run/connman/resolv.conf and restart the browser booster.</p>
+
+		<div class="code">
+			ls -l /etc/resolv.conf<br>
+			rm -f /etc/resolv.conf<br>
+			ln -s /run/connman/resolv.conf /etc/resolv.conf<br>
+			systemctl --user restart booster-browser@sailfish-browser.service<br>
+		</div>
 
 	</div>
 	<div class="card">
