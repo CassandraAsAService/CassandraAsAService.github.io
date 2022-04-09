@@ -125,11 +125,13 @@
 		<ul>
 			<li>Download the stock files from <a
 					href="https://drive.google.com/file/d/1lEc-ummPsamKDWHpoJP6YJcH6IYS4abe/view">here</a></li>
-			<li>On your Pro1, enable developer mode, then enable USB debugging</li>
+			<li>If you are running Android, enable developer mode, then enable USB debugging</li>
 			<li>On your computer, open a terminal and type <span class="code">adb reboot bootloader</span></li>
+			<li>If you are coming from a SailfishOS version, enable developer mode. Connect to <span class="code">ssh defaultuser@192.168.2.15</span> from your computer, become <span class="code">devel-su</span> and issue <span class="code">reboot bootloader</span></li>
+			<li>In case your device does not boot into any OS currently, you can alternatively access the fastboot bootloader menu by pressing the volume down key during the first second of the boot process.</li>
 		</ul>
 
-                <p>Now you are in the bootloader. Run the following commands or create a script from them as described below:</p>
+                <p>Now you are in the fastboot bootloader menu. Run the following commands or create a script from them as described below:</p>
 		<p>
 		<div class="code">
 			fastboot flash boot_a boot.img<br>
