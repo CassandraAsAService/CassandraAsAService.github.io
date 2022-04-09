@@ -125,11 +125,13 @@
 		<ul>
 			<li>Download the stock files from <a
 					href="https://drive.google.com/file/d/1lEc-ummPsamKDWHpoJP6YJcH6IYS4abe/view">here</a></li>
-			<li>On your Pro1, enable developer mode, then enable USB debugging</li>
+			<li>If you are running Android, enable developer mode, then enable USB debugging</li>
 			<li>On your computer, open a terminal and type <span class="code">adb reboot bootloader</span></li>
+			<li>If you are coming from a SailfishOS version, enable developer mode. Connect to <span class="code">ssh defaultuser@192.168.2.15</span> from your computer, become <span class="code">devel-su</span> and issue <span class="code">reboot bootloader</span></li>
+			<li>In case your device does not boot into any OS currently, you can alternatively access the fastboot bootloader menu by pressing the volume down key during the first second of the boot process.</li>
 		</ul>
 
-                <p>Now you are in the bootloader. Run the following commands or create a script from them as described below:</p>
+                <p>Now you are in the fastboot bootloader menu. Run the following commands or create a script from them as described below:</p>
 		<p>
 		<div class="code">
 			fastboot flash boot_a boot.img<br>
@@ -180,7 +182,7 @@
 		</p>
 
 		<p>Suggestion: copy the commands and save as a bash script, then just run the script instead of running each
-			command individually...</p>
+			command individually.</p>
 
                 <p>To do so, copy and paste above fastboot commands into a script, e.g. <span class="code">nano flash-stock.sh</span>. Add <span class="code">#!/bin/bash</span>
 		        as first line. Save what you pasted into nano using <span class="code">ctrl+o</span>. Exit nano with <span class="code">ctrl+x</span> and make the script executable
@@ -346,7 +348,7 @@
 	</div>
 	<div class="card">
 		<h2 id="vanha">Upgrade from Sailfish OS 4.3 to 4.4 (Vanha Rauma)</h2>
-		<p>Same thing yet again, just change the number.</p>
+		<p>This time, it is advised to update the 4.3 install again before actually updating to 4.4. Especially when updating an old 4.3 install.</p>
 
 		<div class="code">
 			devel-su<br>
@@ -428,8 +430,8 @@
 	</div>
 	<div class="card"
 		style="color: darkgray; padding-top: 5px; padding-bottom: 5px; border-left-color: white; text-align: right; border-top-left-radius: 50px; border-bottom-right-radius: 50px;">
-		<p style="padding-right: 20px">Publication date: 2022-01-08<br>Updated: 2022-04-06<br>
-		        Version: v0.2.5</p>
+		<p style="padding-right: 20px">Publication date: 2022-01-08<br>Updated: 2022-04-09<br>
+		        Version: v0.2.6</p>
 	</div>
 </body>
 
