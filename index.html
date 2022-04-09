@@ -3,7 +3,6 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Pro1 SailfishOS Installation Guide</title>
-	<link rel="icon" type="image/x-icon" href="res/favicon.webp">
 	<style>
 		html {
 			font-family: sans-serif;
@@ -117,7 +116,7 @@
 	</div>
 
 	<div class="card">
-		<h2><a name="pie">Flash to Stock (Pie)<a></h2>
+		<h2 id="pie">Flash to Stock (Pie)<a></h2>
 		<p>Reference: <a
 				href="https://community.fxtec.com/topic/2466-guide-restore-to-stock-firmware-using-fastboot-method/">https://community.fxtec.com/topic/2466-guide-restore-to-stock-firmware-using-fastboot-method/</a>
 		</p>
@@ -197,7 +196,7 @@
 	</div>
 
 	<div class="card">
-		<h2><a name="rokua">Install Sailfish OS 3.3 (Rokua)</a></h2>
+		<h2 id="rokua">Install Sailfish OS 3.3 (Rokua)</h2>
 		<p>Reference: <a
 				href="https://community.fxtec.com/topic/2467-community-build33016updated-18th-aug-sailfish-os-for-fxtec-pro1/">https://community.fxtec.com/topic/2467-community-build33016updated-18th-aug-sailfish-os-for-fxtec-pro1/</a>
 		</p>
@@ -237,7 +236,7 @@
 
 	<div class="card">
 
-		<h2><a name="pallas">Upgrade from Sailfish 3.3 to 3.4 (Pallas-Yllästunturi)</a></h2>
+		<h2 id="pallas">Upgrade from Sailfish 3.3 to 3.4 (Pallas-Yllästunturi)</h2>
 
 		<p>Reference: <a
 				href="https://community.fxtec.com/topic/2467-community-build33016updated-18th-aug-sailfish-os-for-fxtec-pro1/page/8/?tab=comments#comment-54413">https://community.fxtec.com/topic/2467-community-build33016updated-18th-aug-sailfish-os-for-fxtec-pro1/page/8/?tab=comments#comment-54413</a>
@@ -270,7 +269,7 @@
 
 	<div class="card">
 
-		<h2><a name="koli">Upgrade from Sailfish 3.4 to 4.0 (Koli)</a></h2>
+		<h2 id="koli">Upgrade from Sailfish 3.4 to 4.0 (Koli)</h2>
 
 		<ul>
 			<li>In SailfishOS, open Settings</li>
@@ -299,7 +298,7 @@
 
 	<div class="card">
 
-		<h2><a name="kvarken">Upgrade from 4.0 to 4.1 (Kvarken)</a></h2>
+		<h2 id="kvarken">Upgrade from 4.0 to 4.1 (Kvarken)</h2>
 
 		<p>Same thing as the 3.4 to 4.0 install, just change the number when running ssu re.</p>
 
@@ -317,7 +316,7 @@
 	</div>
 
 	<div class="card">
-		<h2><a name="verla">Upgrade from Sailfish OS 4.1 to 4.2 (Verla)</a></h2>
+		<h2 id="verla">Upgrade from Sailfish OS 4.1 to 4.2 (Verla)</h2>
 		<p>Same thing again, just change the number.</p>
 
 		<div class="code">
@@ -331,7 +330,7 @@
 		<p>Reboot when you're done.</p>
 	</div>
 	<div class="card">
-		<h2><a name="suomenlinna">Upgrade from Sailfish OS 4.2 to 4.3 (Suomenlinna)</a></h2>
+		<h2 id="suomenlinna">Upgrade from Sailfish OS 4.2 to 4.3 (Suomenlinna)</h2>
 		<p>Same thing yet again, just change the number.</p>
 
 		<div class="code">
@@ -345,7 +344,7 @@
 
 	</div>
 	<div class="card">
-		<h2><a name="vanha">Upgrade from Sailfish OS 4.3 to 4.4 (Vanha Rauma)</a></h2>
+		<h2 id="vanha">Upgrade from Sailfish OS 4.3 to 4.4 (Vanha Rauma)</h2>
 		<p>Same thing yet again, just change the number.</p>
 
 		<div class="code">
@@ -379,7 +378,7 @@
 
 	</div>
 	<div class="card">
-		<h2><a name="post">Post-installation stuff</a></h2>
+		<h2 id="post">Post-installation stuff</h2>
 		<h3>Homescreen rotation fix</h3>
 		<div class="code">
 			sed -e "s/return allowed/return Orientation.All/" -i  /usr/lib/qt5/qml/Sailfish/Silica/Page.qml
@@ -408,9 +407,9 @@
 		<p>If your camera works, you don't need to do this.</p>
 	</div>
 	<div class="card">
-		<h2><a name="maintenance">Maintenance stuff</a></h2>
+		<h2 id="maintenance">Maintenance stuff</h2>
 		<h3>Fixing touch guestures after display change</h3>
-		<p>After a change of the display it might be necessary to update the firmware of the display controller if the display doesn't react to touch guestures on the curved part.</p>
+		<p>After a change of the display it might be necessary to update the firmware of the display controller if the display doesn't react to touch gestures on the curved part.</p>
 
 		<p>Requirements</p>
 		<ul>
@@ -429,7 +428,7 @@
 	<div class="card"
 		style="color: darkgray; padding-top: 5px; padding-bottom: 5px; border-left-color: white; text-align: right; border-top-left-radius: 50px; border-bottom-right-radius: 50px;">
 		<p style="padding-right: 20px">Publication date: 2022-01-08<br>Updated: 2022-04-06<br>
-		        Version: v0.2.3</p>
+		        Version: v0.2.4</p>
 	</div>
 </body>
 
