@@ -98,15 +98,26 @@
 		<p>You must take the long path to prove your worthiness <i style="font-size: x-small">and/or to avoid
 				bootloops.</i></p>
 
-		<p>(If you skip straight to 4.4, it probably won't work. You need to go from Stock > 3.3 > 3.4 > 4.0 > 4.1 > 4.2
-			> 4.3)</p>
+		<p>(If you skip straight to the latest release, it probably won't work. You need to go from Stock > 3.3 > 3.4 > 4.0 > 4.1 > 4.2
+			> 4.3 > ....)</p>
 
 		<p>(If you try to install over LineageOS without flashing back to stock first, it also might not work...)</p>
 
+		<h3>Content</h3>
+		<a href="#pie">Flash to Stock (Pie)</a><br>
+		<a href="#rokua">Install Sailfish OS 3.3 (Rokua)</a><br>
+		<a href="#pallas">Upgrade from Sailfish 3.3 to 3.4 (Pallas-Yllästunturi)</a><br>
+		<a href="#koli">Upgrade from Sailfish 3.4 to 4.0 (Koli)</a><br>
+		<a href="#kvarken">Upgrade from Sailfish OS 4.0 to 4.1 (Kvarken)</a><br>
+		<a href="#verla">Upgrade from Sailfish OS 4.1 to 4.2 (Verla)</a><br>
+		<a href="#suomenlinna">Upgrade from Sailfish OS 4.2 to 4.3 (Suomenlinna)</a><br>
+		<a href="#vanha">Upgrade from Sailfish OS 4.3 to 4.4 (Vanha Rauma)</a><br>
+		<a href="#post">Post-installation stuff</a><br>
+		<a href="#maintenance">Maintenance stuff</a><br>
 	</div>
 
 	<div class="card">
-		<h2>Flash to Stock (Pie)</h2>
+		<h2><a name="pie">Flash to Stock (Pie)<a></h2>
 		<p>Reference: <a
 				href="https://community.fxtec.com/topic/2466-guide-restore-to-stock-firmware-using-fastboot-method/">https://community.fxtec.com/topic/2466-guide-restore-to-stock-firmware-using-fastboot-method/</a>
 		</p>
@@ -186,7 +197,7 @@
 	</div>
 
 	<div class="card">
-		<h2>Install Sailfish OS 3.3 (Rokua)</h2>
+		<h2><a name="rokua">Install Sailfish OS 3.3 (Rokua)</a></h2>
 		<p>Reference: <a
 				href="https://community.fxtec.com/topic/2467-community-build33016updated-18th-aug-sailfish-os-for-fxtec-pro1/">https://community.fxtec.com/topic/2467-community-build33016updated-18th-aug-sailfish-os-for-fxtec-pro1/</a>
 		</p>
@@ -226,7 +237,7 @@
 
 	<div class="card">
 
-		<h2>Upgrade from Sailfish 3.3 to 3.4 (Pallas-Yllästunturi)</h2>
+		<h2><a name="pallas">Upgrade from Sailfish 3.3 to 3.4 (Pallas-Yllästunturi)</a></h2>
 
 		<p>Reference: <a
 				href="https://community.fxtec.com/topic/2467-community-build33016updated-18th-aug-sailfish-os-for-fxtec-pro1/page/8/?tab=comments#comment-54413">https://community.fxtec.com/topic/2467-community-build33016updated-18th-aug-sailfish-os-for-fxtec-pro1/page/8/?tab=comments#comment-54413</a>
@@ -259,7 +270,7 @@
 
 	<div class="card">
 
-		<h2>Upgrade from Sailfish 3.4 to 4.0 (Koli)</h2>
+		<h2><a name="koli">Upgrade from Sailfish 3.4 to 4.0 (Koli)</a></h2>
 
 		<ul>
 			<li>In SailfishOS, open Settings</li>
@@ -288,7 +299,7 @@
 
 	<div class="card">
 
-		<h2>Upgrade from 4.0 to 4.1 (Kvarken)</h2>
+		<h2><a name="kvarken">Upgrade from 4.0 to 4.1 (Kvarken)</a></h2>
 
 		<p>Same thing as the 3.4 to 4.0 install, just change the number when running ssu re.</p>
 
@@ -306,7 +317,7 @@
 	</div>
 
 	<div class="card">
-		<h2>Upgrade from 4.1 to 4.2 (Verla)</h2>
+		<h2><a name="verla">Upgrade from Sailfish OS 4.1 to 4.2 (Verla)</a></h2>
 		<p>Same thing again, just change the number.</p>
 
 		<div class="code">
@@ -320,7 +331,7 @@
 		<p>Reboot when you're done.</p>
 	</div>
 	<div class="card">
-		<h2>Upgrade from 4.2 to 4.3 (Suomenlinna)</h2>
+		<h2><a name="suomenlinna">Upgrade from Sailfish OS 4.2 to 4.3 (Suomenlinna)</a></h2>
 		<p>Same thing yet again, just change the number.</p>
 
 		<div class="code">
@@ -334,7 +345,7 @@
 
 	</div>
 	<div class="card">
-		<h2>Upgrade from 4.3 to 4.4 (Vanha Rauma)</h2>
+		<h2><a name="vanha">Upgrade from Sailfish OS 4.3 to 4.4 (Vanha Rauma)</a></h2>
 		<p>Same thing yet again, just change the number.</p>
 
 		<div class="code">
@@ -368,12 +379,13 @@
 
 	</div>
 	<div class="card">
-		<h2>Post-installation stuff</h2>
+		<h2><a name="post">Post-installation stuff</a></h2>
 		<h3>Homescreen rotation fix</h3>
 		<div class="code">
 			sed -e "s/return allowed/return Orientation.All/" -i  /usr/lib/qt5/qml/Sailfish/Silica/Page.qml
 		</div>
 		<p>Reboot or restart lipstick as root/devel-su with <span class="code">systemctl --user restart lipstick</span> to apply changes</p>
+
 		<h3>Choose hardware keyboard layout</h3>
 		<div class="code">
 			dconf write /desktop/lipstick-jolla-home/model \"fxtecpro1\"<br>
@@ -381,6 +393,7 @@
 		</div>
 		<p>Replace <span class="code">LAYOUT</span> with a country code from <span class="code">/usr/share/X11/xkb/symbols/fxtec_vndr/pro1</span></p>
 		<p>For US English layout use "us"</p>
+
 		<h3>My camera doesn't work! (fix only applies to 4.3.0.12)</h3>
 		<p>Reference: <a href="https://forum.sailfishos.org/t/4-3-0-12-jolla-camera-also-torch-does-not-start-at-all-as-well-as-videos-do-not-play/9000/62">https://forum.sailfishos.org/t/4-3-0-12-jolla-camera-also-torch-does-not-start-at-all-as-well-as-videos-do-not-play/9000/62</a></p>
 		<div class="code">
@@ -388,11 +401,30 @@
 			ssu rr adaptation-common<br>
 			rm -r /var/cache/ssu/<br>
 			ssu ur<br>
-			pkcon refresh<br> 
-			version --dup<br> 
+			pkcon refresh<br>
+			version --dup<br>
 			reboot
 		</div>
 		<p>If your camera works, you don't need to do this.</p>
+	</div>
+	<div class="card">
+		<h2><a name="maintenance">Maintenance stuff</a></h2>
+		<h3>Fixing touch guestures after display change</h3>
+		<p>After a change of the display it might be necessary to update the firmware of the display controller if the display doesn't react to touch guestures on the curved part.</p>
+
+		<p>Requirements</p>
+		<ul>
+			<li>To be able to update the firmware the Linux kernel has to have the enabled option "CONFIG_GTP_AUTO_UPDATE=y":<br><span class="code">zcat /proc/config.gz | grep CONFIG_GTP_AUTO_UPDATE</span></li>
+			<li>The display firmware file: <a href="https://cdn.discordapp.com/attachments/604551605538521118/961663435635060778/gt1x_fw.bin">gt1x_fw.bin</a></li>
+		</ul>
+
+		<p>Process</p>
+		<ul>
+			<li>Create a directory and store the firmware file in it: <span class="code">mkdir -p /lib/firmware</span></li>
+			<li>Add the new directory to the list of directories in the beginning of this script: <span class="code">vi /usr/bin/droid/droid-load-firmware.sh</span></li>
+			<li>Reboot. Now the display should react to touches on the curved part of the screen again.</li>
+			<li>Remove the added directory in /usr/bin/droid/droid-load-firmware.sh and/or the firmware file in /lib/firmware to avoid flashing the firmware after every restart of the device.</li>
+		</ul>
 	</div>
 	<div class="card"
 		style="color: darkgray; padding-top: 5px; padding-bottom: 5px; border-left-color: white; text-align: right; border-top-left-radius: 50px; border-bottom-right-radius: 50px;">
