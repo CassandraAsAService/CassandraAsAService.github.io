@@ -97,8 +97,8 @@
 		<p>You must take the long path to prove your worthiness <i style="font-size: x-small">and/or to avoid
 				bootloops.</i></p>
 
-		<p>(If you skip straight to 4.4, it probably won't work. You need to go from Stock > 3.3 > 3.4 > 4.0 > 4.1 > 4.2
-			> 4.3)</p>
+		<p>(If you skip straight to the latest release, it probably won't work. You need to go from Stock > 3.3 > 3.4 > 4.0 > 4.1 > 4.2
+			> 4.3 > ....)</p>
 
 		<p>(If you try to install over LineageOS without flashing back to stock first, it also might not work...)</p>
 
@@ -373,6 +373,7 @@
 			sed -e "s/return allowed/return Orientation.All/" -i  /usr/lib/qt5/qml/Sailfish/Silica/Page.qml
 		</div>
 		<p>Reboot or restart lipstick as root/devel-su with <span class="code">systemctl --user restart lipstick</span> to apply changes</p>
+
 		<h3>Choose hardware keyboard layout</h3>
 		<div class="code">
 			dconf write /desktop/lipstick-jolla-home/model \"fxtecpro1\"<br>
@@ -380,6 +381,7 @@
 		</div>
 		<p>Replace <span class="code">LAYOUT</span> with a country code from <span class="code">/usr/share/X11/xkb/symbols/fxtec_vndr/pro1</span></p>
 		<p>For US English layout use "us"</p>
+
 		<h3>My camera doesn't work! (fix only applies to 4.3.0.12)</h3>
 		<p>Reference: <a href="https://forum.sailfishos.org/t/4-3-0-12-jolla-camera-also-torch-does-not-start-at-all-as-well-as-videos-do-not-play/9000/62">https://forum.sailfishos.org/t/4-3-0-12-jolla-camera-also-torch-does-not-start-at-all-as-well-as-videos-do-not-play/9000/62</a></p>
 		<div class="code">
@@ -387,11 +389,30 @@
 			ssu rr adaptation-common<br>
 			rm -r /var/cache/ssu/<br>
 			ssu ur<br>
-			pkcon refresh<br> 
-			version --dup<br> 
+			pkcon refresh<br>
+			version --dup<br>
 			reboot
 		</div>
 		<p>If your camera works, you don't need to do this.</p>
+	</div>
+	<div class="card">
+		<h2>Maintenance stuff</h2>
+		<h3>Fixing touch guestures after display change</h3>
+		<p>After a change of the display it might be necessary to update the firmware of the display controller if the display doesn't react to touch guestures on the curved part.</p>
+
+		<p>Requirements</p>
+		<ul>
+			<li>To be able to update the firmware the Linux kernel has to have the enabled option "CONFIG_GTP_AUTO_UPDATE=y":<br><span class="code">zcat /proc/config.gz | grep CONFIG_GTP_AUTO_UPDATE</span></li>
+			<li>The display firmware file: <a href="https://cdn.discordapp.com/attachments/604551605538521118/961663435635060778/gt1x_fw.bin">gt1x_fw.bin</a></li>
+		</ul>
+
+		<p>Process</p>
+		<ul>
+			<li>Create a directory and store the firmware file in it: <span class="code">mkdir -p /lib/firmware</span></li>
+			<li>Add the new directory to the list of directories in the beginning of this script: <span class="code">vi /usr/bin/droid/droid-load-firmware.sh</span></li>
+			<li>Reboot. Now the display should react to touches on the curved part of the screen again.</li>
+			<li>Remove the added directory in /usr/bin/droid/droid-load-firmware.sh and/or the firmware file in /lib/firmware to avoid flashing the firmware after every restart of the device.</li>
+		</ul>
 	</div>
 	<div class="card"
 		style="color: darkgray; padding-top: 5px; padding-bottom: 5px; border-left-color: white; text-align: right; border-top-left-radius: 50px; border-bottom-right-radius: 50px;">
