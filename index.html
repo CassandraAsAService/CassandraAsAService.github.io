@@ -113,6 +113,7 @@
 		<a href="#verla">Upgrade from Sailfish OS 4.1 to 4.2 (Verla)</a><br>
 		<a href="#suomenlinna">Upgrade from Sailfish OS 4.2 to 4.3 (Suomenlinna)</a><br>
 		<a href="#vanha">Upgrade from Sailfish OS 4.3 to 4.4 (Vanha Rauma)</a><br>
+		<a href="#ketju">Upgrade from Sailfish OS 4.4 to 4.5 (Struven Ketju)</a><br>
 		<a href="#post">Post-installation stuff</a><br>
 		<a href="#maintenance">Maintenance stuff</a><br>
 	</div>
@@ -382,6 +383,22 @@
 
 	</div>
 	<div class="card">
+		<h2 id="ketju">Upgrade from Sailfish OS 4.3 to 4.4 (Struven Ketju)</h2>
+
+		<div class="code">
+			devel-su<br>
+			ssu re 4.5.0.19<br>
+			ssu ur<br>
+			zypper ref<br>
+			zypper dup<br>
+			zypper rm gmp-droid
+		</div>
+
+		<p>Reboot when you're done.</p>
+
+		<p>Do check the zypper output, and make sure nothing crazy is being removed...</p>
+	</div>
+	<div class="card">
 		<h2 id="post">Post-installation stuff</h2>
 		<h3>Homescreen rotation fix</h3>
 		<div class="code">
@@ -431,8 +448,8 @@
 	</div>
 	<div class="card"
 		style="color: darkgray; padding-top: 5px; padding-bottom: 5px; border-left-color: white; text-align: right; border-top-left-radius: 50px; border-bottom-right-radius: 50px;">
-		<p style="padding-right: 20px">Publication date: 2022-01-08<br>Updated: 2022-10-02<br>
-		        Version: v0.3.0</p>
+		<p style="padding-right: 20px">Publication date: 2022-01-08<br>Updated: 2023-03-23<br>
+		        Version: v0.4.0</p>
 	</div>
 </body>
 
